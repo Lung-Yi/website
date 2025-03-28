@@ -4,9 +4,9 @@
 const chartData = {
     // 圖表基本信息
     title: '國防預算比較分析',
-    subtitle: '台灣、中國、美國國防預算對比與台灣預算分配',
-    description: '本視覺化呈現了台灣、中國、美國的國防預算絕對值和相對值(占GDP比例)，以及台灣各部門預算分配情況。通過橫向條形圖的方式，清晰展現各國國防投入的差異，並分析台灣預算結構，幫助理解國防預算規模與分配特徵。',
-    notes: '圖表依數值大小排序，直觀呈現各國國防預算差異。顏色深淺表示數值高低，數值較高的類別使用較深的棕色。美國國防部次長提名人柯伯吉建議台灣將國防預算提高至GDP的10%，而台灣目前國防預算約占GDP的2.5%。若提高至10%，總額將高達2兆6449億元，占總歲出比例將達84-90%。',
+    subtitle: '台灣、中國、美國國防預算對比',
+    description: '本視覺化呈現了台灣、中國、美國的國防預算絕對值和相對值(占GDP比例)。通過橫向條形圖的方式，清晰展現各國國防投入的差異。',
+    notes: '圖表依數值大小排序，直觀呈現各國國防預算差異。顏色深淺表示數值高低，數值較高的類別使用較深的棕色。美國國防部次長提名人柯伯吉建議台灣將國防預算提高至GDP的10%，而台灣目前國防預算約占GDP的2.5%。若提高至10%，總額將高達2兆6449億元。',
     dataSource: '整理自2025年3月新聞報導數據',
     
     // 圖表數據 - 國防預算絕對值（單位：億美元）
@@ -17,24 +17,17 @@ const chartData = {
     labels2: ['美國國防預算占GDP', '中國國防預算占GDP', '台灣國防預算占GDP', '美方建議台灣國防預算占GDP'],
     values2: [3.5, 1.5, 2.5, 10.0],
     
-    // 圖表數據 - 台灣各部會預算（單位：億新台幣）
-    labels3: ['國防部', '內政部', '交通部', '教育部', '衛福部', '經濟部', '資安院與資安署'],
-    values3: [4760, 4000, 3890, 2780, 3170, 2500, 9],
-    
     // 圖表設置
     chartTitle1: '各國國防預算比較（單位：億美元）',
     chartTitle2: '國防預算占GDP比例（單位：%）',
-    chartTitle3: '台灣各部會預算分配（單位：億新台幣）',
     xAxisTitle1: '預算金額（億美元）',
     xAxisTitle2: '占GDP比例（%）',
-    xAxisTitle3: '預算金額（億新台幣）',
     yAxisTitle: '部門/國家',
     unit1: '億美元',
     unit2: '%',
-    unit3: '億新台幣',
     
     // 圖表高度設定
-    chartHeight: 1800  // 三個圖表的總高度
+    chartHeight: 1200  // 修改為兩個圖表的總高度
 };
 
 // 初始化應用
@@ -45,10 +38,9 @@ function initSortedChartApp() {
     // 設置當前日期
     document.getElementById('update-date').textContent = new Date().toLocaleDateString('zh-TW');
     
-    // 創建圖表
+    // 創建圖表，移除第三個圖表
     createSortedChart('sortedBarChart1', chartData.labels1, chartData.values1, chartData.chartTitle1, chartData.xAxisTitle1, chartData.unit1);
     createSortedChart('sortedBarChart2', chartData.labels2, chartData.values2, chartData.chartTitle2, chartData.xAxisTitle2, chartData.unit2);
-    createSortedChart('sortedBarChart3', chartData.labels3, chartData.values3, chartData.chartTitle3, chartData.xAxisTitle3, chartData.unit3);
 }
 
 // 創建應用HTML結構
@@ -64,16 +56,12 @@ function createAppStructure() {
                 ${chartData.description}
             </div>
             
-            <div class="sorted-chart-canvas" style="height: ${chartData.chartHeight/3}px;">
+            <div class="sorted-chart-canvas" style="height: ${chartData.chartHeight/2}px;">
                 <canvas id="sortedBarChart1"></canvas>
             </div>
             
-            <div class="sorted-chart-canvas" style="height: ${chartData.chartHeight/3}px;">
+            <div class="sorted-chart-canvas" style="height: ${chartData.chartHeight/2}px;">
                 <canvas id="sortedBarChart2"></canvas>
-            </div>
-            
-            <div class="sorted-chart-canvas" style="height: ${chartData.chartHeight/3}px;">
-                <canvas id="sortedBarChart3"></canvas>
             </div>
             
             <div class="sorted-chart-notes">
