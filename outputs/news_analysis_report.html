@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預算爭議下的國安困境：台灣國防預算占GDP比例引發多方角力 | 環球視角</title>
+    <meta name="description" content="深入分析台灣國防預算爭議，探討美國要求提高至GDP 10%的可行性，以及朝野政黨對預算分配的不同立場">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入樣式表 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/header.css">
+    <link rel="stylesheet" href="../assets/css/components/footer.css">
+    <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/charts.css">
+    <!-- 2. 引入外JS -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+    <!-- Taiwan geography-->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4.2.2/build/index.umd.min.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v2.min.js"></script>
+    <script src="https://d3js.org/d3-format.v2.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v2.min.js"></script>
+    <script src="https://d3js.org/topojson-client.v3.min.js"></script>
+    <!-- 網站圖標 -->
+    <link rel="icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <!-- 頂部導航 -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-left">
+                    <div class="date">2025年3月12日 星期三</div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><span class="icon icon-facebook"></span></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><span class="icon icon-twitter"></span></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><span class="icon icon-linkedin"></span></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><span class="icon icon-instagram"></span></a>
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜尋新聞..." aria-label="搜尋新聞">
+                        <button type="button" class="search-button" aria-label="搜尋按鈕">
+                            <span class="icon icon-search"></span>
+                        </button>
+                    </div>
+                    <div class="user-actions">
+                        <a href="#" class="btn btn-subscribe">訂閱</a>
+                        <a href="#" class="btn btn-login">登入</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.png" alt="環球視角 Logo">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="../index.html">首頁</a></li>
+                        <li class="nav-item"><a href="../pages/domestic/index.html">國內政治</a></li>
+                        <li class="nav-item"><a href="../pages/international/index.html">國際政治</a></li>
+                        <li class="nav-item"><a href="../pages/finance/index.html">金融財經</a></li>
+                        <li class="nav-item"><a href="../pages/opinion/index.html">評論</a></li>
+                        <li class="nav-item"><a href="../pages/analysis/index.html">深度分析</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-toggle" aria-label="開啟選單">
+                    <span class="icon icon-menu"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 文章內容 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-container">
+                <header>
+                    <h1>預算爭議下的國安困境：台灣國防預算占GDP比例引發多方角力</h1>
+                    <div class="subtitle">美方要求提高至GDP 10%，台灣官員：恐排擠其他重要支出</div>
+                    <div class="byline">記者 林政安 | 2025年3月12日</div>
+                </header>
+
+                <div class="lead">
+                    <p>近期，台灣國防預算占GDP比例問題引發國內外廣泛討論。美國國防部次長提名人柯伯吉在參議院聽證會上重申，台灣應將國防預算從目前「遠低於」GDP的3%提高到10%。此言論引發台灣朝野激烈辯論，行政院長卓榮泰明確表示「台灣無法負擔」，而在野黨則批評政府預算分配不當。本報告深入分析台灣國防預算現況、各方立場及可能的影響。</p>
+                </div>
+
+                <h2>國防預算現況：台灣與區域強權的差距</h2>
+                <p>根據最新數據，2025年台灣國防預算為4,760億元新台幣，約占GDP的2.5%，創歷史新高。然而，與區域內其他國家相比，台灣的國防支出在絕對值上仍存在顯著差距。</p>
+
+                <div id="sortedChartApp"></div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="sorted_chart.js"></script>
+
+                <p>上圖顯示，中國2025年國防預算達17,847億元人民幣（約2,457億美元），是台灣的數倍。值得注意的是，根據斯德哥爾摩國際和平研究所(Sipri)數據，中國軍費開支仍不到美國的三分之一。同時，中國軍方發言人吳謙於3月9日警告，如果台灣分裂主義加強，中國將「收緊台灣脖子上的絞索」，進一步加劇台海緊張局勢。</p>
+
+                <h2>美方要求與台灣回應：GDP 10%是否可行？</h2>
+                <p>美國國防部次長提名人柯伯吉在參議院聽證會上表示，台灣應將國防預算提高至GDP的10%。此言論得到美國前總統川普的支持，但在台灣引發不同反應。</p>
+
+                <p>行政院長卓榮泰3月5日在立法院明確表示，台灣無法負擔將國防支出提升至GDP 10%，2025年不可能達成此目標，未來仍須依國家財政狀況審慎評估。國民黨立委陳玉珍也指出，若按美國要求將國防預算提升至GDP 10%，台灣將無法正常運作，「社會福利都不用做了，教育不用做了，所有交通建設都不必做了」。</p>
+
+                <div class="pie-chart-container">
+                    <canvas id="pieChart"></canvas>
+                    <button id="toggleButton" class="toggle-button">顯示國防預算提高至GDP 10%</button>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+                <script src="piechart.js"></script>
+
+                <p>上圖直觀展示了台灣目前預算分配結構，以及若將國防預算提高至GDP 10%後的變化。根據估算，2025年若國防預算達GDP 10%，總額將高達2兆6,449億元，占總歲出比例84-90%，將嚴重排擠其他重要支出。</p>
+
+                <h2>朝野立場對比：國防預算削減引發爭議</h2>
+                <p>台灣朝野政黨對國防預算的態度存在明顯分歧。在野黨刪減2025年國防預算約46.8億元，並凍結約900億元，引起美國高度關注。美國聯邦參議員蘇利文對此表達疑慮，稱為「玩危險遊戲」。</p>
+
+                <h2 id="comparison-title"></h2>
+                <div id="analysis-description" class="analysis-description"></div>
+                <!-- 表格區域 -->
+                <div class="position-comparison-table">
+                    <table id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="aspect-column">爭議面向</th>
+                                <th class="position-header position-a-header"></th>
+                                <th class="position-header position-b-header"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 表格內容將由JavaScript動態生成 -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="comparison-summary">
+                    <p></p>
+                </div>
+                <script src="controversial_standpoint_comparison.js"></script>
+
+                <p>民眾黨則回應稱，2025年國防預算4,760億元是歷年最高，刪減的46.8億元是歷年最少，且97.8%是刪減連民進黨都同意刪的獵鴞專案預算。民眾黨強調台灣需要「有效能的國防」，而非「毫無監督的亂花錢」。</p>
+
+                <h2>歷年趨勢分析：台灣國防預算變化與區域對比</h2>
+                <p>分析台灣國防預算的歷年變化，可以更清晰地了解其發展趨勢及與區域強權的差距。</p>
+
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+                <script src="time_trend.js"></script>
+
+                <p>從趨勢圖可見，台灣國防預算近年來呈現穩步增長趨勢，但增幅遠不及中國。專家建議，台灣應在2026-2028年間務實提升國防預算至GDP的4%，而非立即達到5%或10%。具體建議包括提高經常性國防支出至8,400億元(增加2,000億)，並在2025-2028年間編列6,000億元特別國防預算，聚焦於戰略關鍵軍購。</p>
+
+                <h2>其他預算爭議：資安與能源</h2>
+                <p>除國防預算外，資安與能源預算也成為爭議焦點。數發部資安院長林盈達表示，資安院今年預算被砍25%約兩億元，資安署與資安院預算加總僅8-9億元，而他認為應達百億元，「少了快一個零」。林盈達指出，台灣每天都被駭客大量攻擊，資安防護應有幾十億元預算。</p>
+
+                <p>在能源方面，立法院審議總預算覆議案時，撥補台電虧損預算1,000億元遭砍，恐造成電價上漲。經濟部長郭智輝表示，台電負債接近5,000億元，已達舉債上限，若不調整財務，未來舉債將有困難。電價是否調漲須經電價費率審議委員會討論後才能決定，該委員會預計3月下旬召開。</p>
+
+                <h2>結論：尋求平衡的國防投資</h2>
+                <p>台灣面臨的國防預算爭議反映了國家安全與財政可持續性之間的平衡難題。一方面，區域安全形勢要求台灣加強防衛能力；另一方面，預算有限且需兼顧民生、教育、基礎建設等多方面需求。</p>
+
+                <p>淡江大學助理教授林穎佑指出，台灣國防預算目前約占GDP 2.5%，即使提高到5%就會造成嚴重的預算排擠。國防安全研究院副研究員李冠成建議，可考量「國防預算占政府總預算比例」作為另一指標，而非僅關注GDP占比。</p>
+
+                <p>專家普遍認為，台灣應根據自身面臨的威脅情勢，精算國防預算，並考量後勤補給、維保和人員短缺等問題。在有限資源下，提高國防支出效率、優化預算分配，或許比單純追求GDP占比更為重要。</p>
+
+                <div class="tags">
+                    <span class="tag">國防預算</span>
+                    <span class="tag">GDP占比</span>
+                    <span class="tag">台美關係</span>
+                    <span class="tag">預算爭議</span>
+                    <span class="tag">國家安全</span>
+                </div>
+
+                <div class="related-news">
+                    <h3>相關報導</h3>
+                    <ul>
+                        <li><a href="#">美國國防部次長提名人：台灣應提高國防預算至GDP 10%</a></li>
+                        <li><a href="#">卓榮泰：台灣無法負擔國防預算占GDP 10%</a></li>
+                        <li><a href="#">在野黨刪減國防預算引美方關切</a></li>
+                        <li><a href="#">資安院長：台灣資安預算太少 少了快1個「0」</a></li>
+                        <li><a href="#">台電預算遭刪 電價調整引關注</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>關於我們</h4>
+                    <p>環球視角致力於提供最專業、最深入的政治新聞與分析</p>
+                </div>
+                <div class="footer-section">
+                    <h4>聯絡資訊</h4>
+                    <p>Email: contact@globalperspective.tw</p>
+                    <p>電話: (02) 2345-6789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>追蹤我們</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 環球視角. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
