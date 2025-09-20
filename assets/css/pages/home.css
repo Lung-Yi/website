@@ -245,7 +245,7 @@
     background-color: var(--primary);
 }
 
-/* 響應式設計 */
+/* 響應式設計 - 基礎調整 */
 @media (max-width: 992px) {
     .hero {
         height: 400px;
@@ -261,6 +261,7 @@
     }
 }
 
+/* 移動端優化 */
 @media (max-width: 768px) {
     .hero {
         height: 350px;
@@ -294,6 +295,7 @@
     }
 }
 
+/* 小屏幕優化 */
 @media (max-width: 576px) {
     .hero {
         height: 300px;
@@ -306,5 +308,9 @@
     
     .hero .meta {
         justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
 }

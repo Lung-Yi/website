@@ -1,0 +1,437 @@
+/* 響應式設計 - responsive.css */
+
+/* 斷點定義 */
+:root {
+    --breakpoint-xs: 480px;   /* 超小屏幕 */
+    --breakpoint-sm: 576px;  /* 小屏幕 */
+    --breakpoint-md: 768px;  /* 中等屏幕 */
+    --breakpoint-lg: 992px;  /* 大屏幕 */
+    --breakpoint-xl: 1200px; /* 超大屏幕 */
+    --breakpoint-xxl: 1400px; /* 超超大屏幕 */
+}
+
+/* 基礎響應式工具類 */
+.hidden-xs { display: none !important; }
+.hidden-sm { display: none !important; }
+.hidden-md { display: none !important; }
+.hidden-lg { display: none !important; }
+
+.visible-xs { display: block !important; }
+.visible-sm { display: block !important; }
+.visible-md { display: block !important; }
+.visible-lg { display: block !important; }
+
+/* 超小屏幕 (手機直向) */
+@media (max-width: 480px) {
+    /* 基礎調整 */
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* 標題調整 */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    h4 { font-size: 1.125rem; }
+    
+    /* 按鈕調整 */
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    /* 工具類顯示/隱藏 */
+    .hidden-xs { display: none !important; }
+    .visible-xs { display: block !important; }
+}
+
+/* 小屏幕 (手機橫向) */
+@media (max-width: 576px) {
+    /* 頂部導航調整 */
+    .top-bar .container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .top-bar-left,
+    .top-bar-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .search-box input {
+        width: 100%;
+    }
+    
+    .user-actions {
+        justify-content: center;
+    }
+    
+    /* 主導航調整 */
+    .main-header .container {
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    /* 分類標籤調整 */
+    .tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+    
+    .tab {
+        flex: 1;
+        min-width: calc(50% - 0.25rem);
+        text-align: center;
+        font-size: 0.875rem;
+    }
+    
+    /* 新聞網格調整 */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .news-card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+    
+    .card-title {
+        font-size: 1.125rem;
+        line-height: 1.4;
+    }
+    
+    .card-excerpt {
+        font-size: 0.875rem;
+    }
+    
+    /* 分析網格調整 */
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .analysis-card {
+        padding: 1rem;
+    }
+    
+    /* 電子報調整 */
+    .newsletter {
+        padding: 2rem 0;
+    }
+    
+    .newsletter-title {
+        font-size: 1.5rem;
+    }
+    
+    .newsletter-text {
+        font-size: 1rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form .btn {
+        width: 100%;
+        height: 44px;
+    }
+    
+    /* 頁尾調整 */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-about {
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    /* 工具類顯示/隱藏 */
+    .hidden-sm { display: none !important; }
+    .visible-sm { display: block !important; }
+}
+
+/* 中等屏幕 (平板) */
+@media (max-width: 768px) {
+    /* 頂部導航調整 */
+    .top-bar .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    /* 新聞網格調整 */
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    
+    /* 頁尾調整 */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-about {
+        grid-column: span 2;
+    }
+    
+    /* 工具類顯示/隱藏 */
+    .hidden-md { display: none !important; }
+    .visible-md { display: block !important; }
+}
+
+/* 大屏幕 (小桌面) */
+@media (max-width: 992px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-about {
+        grid-column: span 2;
+    }
+    
+    /* 工具類顯示/隱藏 */
+    .hidden-lg { display: none !important; }
+    .visible-lg { display: block !important; }
+}
+
+/* 超大屏幕 (大桌面) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .analysis-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    
+    .footer-about {
+        grid-column: span 1;
+    }
+}
+
+/* 移動端導航菜單 */
+@media (max-width: 768px) {
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .main-nav .nav-list {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .main-nav .nav-item {
+        width: 100%;
+        border-bottom: 1px solid var(--divider);
+    }
+    
+    .main-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .main-nav .nav-item a {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .main-nav .nav-item::after {
+        display: none;
+    }
+}
+
+/* 觸控設備優化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 增加觸控目標大小 */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .social-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .tab {
+        min-height: 44px;
+    }
+    
+    /* 移除懸停效果 */
+    .card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .news-card:hover .card-image img {
+        transform: none;
+    }
+    
+    .analysis-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+/* 高分辨率屏幕優化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* 確保在高分辨率屏幕上圖像清晰 */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    /* 這裡可以添加深色模式樣式 */
+    /* 目前保持現有的淺色主題 */
+}
+
+/* 減少動畫（用戶偏好） */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 打印樣式 */
+@media print {
+    .header,
+    .footer,
+    .newsletter,
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+    
+    .news-grid,
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+}
+
+/* 動畫定義 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

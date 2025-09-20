@@ -290,7 +290,7 @@
     display: none;
 }
 
-/* 響應式設計 */
+/* 響應式設計 - 基礎調整 */
 @media (max-width: 768px) {
     .card-image {
         height: 180px;
@@ -309,19 +309,19 @@
     }
 }
 
-@media (max-width: 576px) {
-    .news-card {
-        max-width: 400px;
-        margin: 0 auto;
+/* 觸控設備優化 */
+@media (hover: none) and (pointer: coarse) {
+    .news-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
     }
     
-    .small-card {
-        flex-direction: column;
-        align-items: flex-start;
+    .news-card:hover .card-image img {
+        transform: none;
     }
     
-    .small-card-image {
-        width: 100%;
-        height: 120px;
+    .analysis-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
     }
 }
